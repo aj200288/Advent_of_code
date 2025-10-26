@@ -5,6 +5,7 @@
 #include <fstream>
 #include <vector>
 #include <stack>
+#include <array>
 
 
 int get_numbers (const std::vector<std::vector<char>>& data, int i, int& j) {
@@ -46,29 +47,23 @@ int check_for_numbers(const std::vector<std::vector<char>>& data, int i, int j) 
     return sum;
 }
 
-
-int main() {
-
-    // open a file
-    std::ifstream file("input.txt");
-    if (!file.is_open()) {
-        std::cerr << "Could not open file.\n";
-        return 1;
-    }
-
-    // read contents of a file and store them to 2d vector
-    std::string line;
-    std::vector<std::vector<char>> data;
-
-    while (getline(file, line)) {
-        std::vector<char> parse_line;
-        for (const char &c : line) {
-            parse_line.push_back(c);
+int check_if_two_numbers(const std::vector<std::vector<char>>& data, int i, int j) {
+    //check neighbouring cells if digits
+    std::array<int, 2> neighbours = {0, 0};
+    int current_neighbour = 0;
+    for (int ni = i - 1; ni <= i + 1; ++ni) {
+        for (int nj = j - 1; nj <= j + 1; ++nj) {
+            if (isdigit(data[ni][nj])) {   
+                if(current_neighbour == 2) return 0;
+                neighbours[current_neighbour++] =  get_numbers(data, ni, nj);
+            }
         }
-        data.push_back(parse_line);
     }
+    return current_neighbour == 2 ? neighbours[0] * neighbours[1] : 0;
+}
 
 
+void part_one(std::vector<std::vector<char>>& data) {
     // loop through file again to finc special symbols and read numbers
     int sum = 0;
     for (int i = 0; i < data.size(); ++i) {
@@ -78,8 +73,46 @@ int main() {
             }
         }
     }
-
     std::cout << "Part one: " << sum << std::endl;
+}
+
+
+void part_two(std::vector<std::vector<char>>& data) {
+    int sum = 0;
+    for (int i = 0; i < data.size(); ++i) {
+        for (int j = 0; j < data[i].size(); ++j) {
+            if(data[i][j] == '*') {
+                sum += check_if_two_numbers(data, i, j);
+            }
+        }
+    }
+    std::cout << "Part two: " << sum << std::endl;
+}
+
+
+int main() {
+    // open a file
+    std::ifstream file("input.txt");
+    if (!file.is_open()) {
+        std::cerr << "Could not open file.\n";
+        return 1;
+    }
+
+    // read contents of a file and store them in 2d vector
+    std::string line;
+    std::vector<std::vector<char>> data;
+    while (getline(file, line)) {
+        std::vector<char> parse_line;
+        for (const char &c : line) {
+            parse_line.push_back(c);
+        }
+        data.push_back(parse_line);
+    }
+
+
+    part_one(data);
+    part_two(data);
+
 
     return 0;
 }
