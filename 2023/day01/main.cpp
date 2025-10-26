@@ -39,11 +39,10 @@ int main() {
     file.seekg(0); // Seek to beginning of file
 
     std::vector<std::string> num_words = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    std::map<int, int> map; // position -> digit value
     int sum2 = 0;
 
     while (getline(file, line)) {
-        map.clear(); // each line own map
+        std::map<int, int> map; // position -> digit value
 
         // find word numbers
         for (int i = 0; i < num_words.size(); ++i) {
