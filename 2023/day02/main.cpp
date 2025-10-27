@@ -61,8 +61,8 @@ int main() {
             }
 
             if (current_number > color_values[current_color]) {
-                sum -= game_number;
-                break;
+                sum -= game_number; // substract current game
+                break; // go to new line
             };
         }
     }
