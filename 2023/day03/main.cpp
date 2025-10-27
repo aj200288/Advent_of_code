@@ -15,6 +15,8 @@ int get_numbers (const std::vector<std::vector<char>>& data, int i, int& j) {
         --j;
     }
 
+    // str to int se da tud bl pregledno narest glej prejšnji dan, bom pustu kle, da vem tud za to možnost
+
     //store number is stack
     std::stack<char> num_parsed;
     while (isdigit(data[i][++j])) {

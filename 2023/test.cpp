@@ -1,19 +1,15 @@
 #include <iostream>
-
-
+#include <string>
+using namespace std;
 
 int main() {
-    char a = '5';
+    
+    std::string a = "";
+    a += '1';
+    a += '2';
 
-    std::cout << a - '0' << std::endl;
+    int b = std::stoi(a);
 
-
-    for (int i = 0; i < 5; i++) {
-        std::cout << i << std::endl;
-        i--;
-    }
-
-
-
+    std::cout << b;
     return 0;
 }
