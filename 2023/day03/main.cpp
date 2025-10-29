@@ -6,6 +6,7 @@
 #include <vector>
 #include <stack>
 #include <array>
+#include <string>
 
 
 int get_numbers (const std::vector<std::vector<char>>& data, int i, int& j) {
