@@ -60,7 +60,7 @@ long long invalid_ids_part2 (long long id1, long long id2) {
 
 
 
-// ORIGINAL:
+// ORIGINAL part2:
 
 // long long invalid_ids_part2 (long long id1, long long id2) {
 //     long long sum = 0;

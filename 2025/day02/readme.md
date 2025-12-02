@@ -1,10 +1,7 @@
-### First time generating buildfiles:
-cmake -S . -B build -G "MinGW Makefiles"
+Čas 3h
 
-### After build already exists:
-cmake --build build
+Delal sem s števili in stringi. Števila za lažje iteriranje po razponu, stringi za lažje preverjanje vzorcev. 
 
-run programs
-.\build\main.exe
-.\build\tests.exe
+V prvem delu število razdelimo na pol in preverimo če sta si polovici enaki.
 
+V drugem delu se z oknom spremenljive dolžine (od 1 do polovice dolžine niza - če ni parno zaokroženo navzdol) sprehodimo čez število in preverjamo ali so si posamezni deli enaki. 
