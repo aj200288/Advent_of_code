@@ -19,7 +19,9 @@ std::vector<int> split(const std::string& str) {
 
 int main() {
 
-    std::string a = " 12 13 14 15 ";
+    std::string a = "12 13 14 15 ";
+    std::cout << "tst" << a.substr(0, 1) << std::endl;
+
     std::vector<int> b = split(a);
 
     for(auto &o : b) {
