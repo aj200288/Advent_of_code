@@ -1,0 +1,3 @@
+Čas: 45min
+
+Za vsako število poiščemo največje število do 11 do konca potem od prejšnjega najdenega do 10 ....

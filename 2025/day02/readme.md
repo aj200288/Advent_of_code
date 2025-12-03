@@ -1,4 +1,7 @@
-Čas 3h
+Čas 2 15h
+
+
+LAH BI Z REGEX :| 
 
 Delal sem s števili in stringi. Števila za lažje iteriranje po razponu, stringi za lažje preverjanje vzorcev. 
 

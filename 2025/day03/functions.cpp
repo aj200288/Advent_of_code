@@ -1,0 +1,74 @@
+#include <string>
+#include <iostream>
+#include <vector>
+
+#include "functions.h"
+
+
+//TODO
+//ena funkcija za vse, s tem da uzbereš kolk števil v potegneš
+//če najdeš 9 greš naprej ker več ne more bit
+//rekurzija, funckiije? da je mal bl optimiziran (lashko bi mel funkcjio samo za najdt max iz enga niza)
+
+
+
+int max(std::string line) {
+    int sum = 0;
+    int max_first = 0;
+    int max_second = 0;
+    int j;
+
+    for (int i = 0; i < line.size()-1; ++i) {
+        int num = line[i] - '0';
+        if (num > max_first) {
+            max_first = num;
+            j = i;
+        }
+    }
+    // std::cout << num << std::endl;
+    for (int k = j+1; k < line.size(); ++k) {
+        int num = line[k] - '0';
+        if (num > max_second)
+            max_second = num;
+    }
+
+    sum = 10*max_first + max_second;
+    return sum;
+}
+
+
+//najprej preverš vse razen zadnjih 11
+//poj preverš vse od prejšnje max pa do zadnjih 10
+//poj preverš vse od prejšnje pa do zadnjih 9
+
+//če je liin size 30 je zadnji indeks 29 - 11 = 18
+
+long long max2(std::string line) {
+    std::string max_str = "";
+    int start_pos = 0;
+    
+
+    // za vseh 12 kje končaš
+    for (int k = 11; k >= 0; --k) {
+        int max = 0;
+        char cmax = '0';
+        int max_pos = start_pos;
+        
+
+        //za vse char v vrsti
+        for (int j = start_pos; j < line.size() - k; ++j) {
+            int num = line[j] - '0';
+            if (num > max) {
+                max = num;
+                cmax = line[j];
+                max_pos = j + 1;
+            }
+        }
+        max_str += cmax;
+        start_pos = max_pos;  // Next iteration starts from position after this max
+    }
+
+
+    // std::cout << max_str << std::endl;
+    return std::stoll(max_str);
+}
