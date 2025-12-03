@@ -65,7 +65,7 @@ long long max2(std::string line) {
             }
         }
         max_str += cmax;
-        start_pos = max_pos;  // Next iteration starts from position after this max
+        start_pos = max_pos;  // Naslednja iteracija po max prejšje
     }
 
 
