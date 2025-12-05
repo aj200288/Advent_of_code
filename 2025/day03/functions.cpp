@@ -11,32 +11,6 @@
 //rekurzija, funckiije? da je mal bl optimiziran (lashko bi mel funkcjio samo za najdt max iz enga niza)
 
 
-
-int max(std::string line) {
-    int sum = 0;
-    int max_first = 0;
-    int max_second = 0;
-    int j;
-
-    for (int i = 0; i < line.size()-1; ++i) {
-        int num = line[i] - '0';
-        if (num > max_first) {
-            max_first = num;
-            j = i;
-        }
-    }
-    // std::cout << num << std::endl;
-    for (int k = j+1; k < line.size(); ++k) {
-        int num = line[k] - '0';
-        if (num > max_second)
-            max_second = num;
-    }
-
-    sum = 10*max_first + max_second;
-    return sum;
-}
-
-
 //NARED S POINTERJIIIIIIIIII dost laži
 // pa še to
 // int total = 0;
@@ -52,20 +26,19 @@ int max(std::string line) {
 
 //če je liin size 30 je zadnji indeks 29 - 11 = 18
 
-long long max2(std::string line) {
+size_t max(const std::string &line, const int num_bat) {
     std::string max_str = "";
-    int start_pos = 0;
-    
+    size_t start_pos = 0;
 
-    // za vseh 12 kje končaš
-    for (int k = 11; k >= 0; --k) {
+    // za vseh 12 kje končaš (ne more bit size t ker je veno true v tem primeru)
+    for (int k = num_bat-1; k >= 0; --k) {
         int max = 0;
         char cmax = '0';
-        int max_pos = start_pos;
+        size_t max_pos = start_pos;
         
 
         //za vse char v vrsti
-        for (int j = start_pos; j < line.size() - k; ++j) {
+        for (size_t j = start_pos; j < line.size() - k; ++j) {
             int num = line[j] - '0';
             if (num > max) {
                 max = num;
@@ -81,3 +54,38 @@ long long max2(std::string line) {
     // std::cout << max_str << std::endl;
     return std::stoll(max_str);
 }
+
+
+
+
+
+// Original: 
+
+// size_t max(const std::string &line, const int num_bat) {
+//     std::string max_str = "";
+//     int start_pos = 0;
+
+//     // za vseh 12 kje končaš
+//     for (int k = num_bat-1; k >= 0; --k) {
+//         int max = 0;
+//         char cmax = '0';
+//         int max_pos = start_pos;
+        
+
+//         //za vse char v vrsti
+//         for (int j = start_pos; j < line.size() - k; ++j) {
+//             int num = line[j] - '0';
+//             if (num > max) {
+//                 max = num;
+//                 cmax = line[j];
+//                 max_pos = j + 1;
+//             }
+//         }
+//         max_str += cmax;
+//         start_pos = max_pos;  // Naslednja iteracija po max prejšje
+//     }
+
+
+//     // std::cout << max_str << std::endl;
+//     return std::stoll(max_str);
+// }

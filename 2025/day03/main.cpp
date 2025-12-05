@@ -6,19 +6,20 @@
 
 
 int main() {
-    int sum  = 0;
-    long long sum2 = 0;
+    size_t sum1 = 0;
+    size_t sum2 = 0;
 
     std::ifstream file("input.txt");
     // std::ifstream file("test.txt");
     std::string line{};
     while (std::getline(file, line)) {
-        sum += max(line);
-        sum2 += max2(line);
+        sum1 += max(line, 2);
+        sum2 += max(line,  12);
 
     }
     
-    std::cout << sum2 << std::endl;
+    std::cout << "Part one: " << sum1 << std::endl;
+    std::cout << "Part two: " << sum2 << std::endl;
 
 
 

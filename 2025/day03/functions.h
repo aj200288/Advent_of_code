@@ -3,8 +3,7 @@
 
 #include <string>
 
-int max(std::string line);
-long long max2(std::string line);
+size_t max(const std::string &line, const int num_bat);
 
 
 #endif // FUNCTIONS_H
