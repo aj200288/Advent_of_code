@@ -1,10 +1,9 @@
-### First time generating buildfiles:
-cmake -S . -B build -G "MinGW Makefiles"
+Iteriramo po vseh znakih in za vsakega preverimo če je '@'. Če je preštejemo vse njegove sosde.
+V drugem delu '@' zamenjamo z '.' če imam manj kot 4 sosede. Postopek ponavjamo dokler ne moremo zamenjati nobenega znaka več.
 
-### After build already exists:
-cmake --build build
 
-run programs
-.\build\main.exe
-.\build\tests.exe
 
+
+
+TODO: rekurzija
+Mislm, da bi se dal tud z rekurzijo rešit, ne vem pa kolk se stack poj nafila. Repna rekurzija?
