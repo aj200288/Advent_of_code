@@ -6,7 +6,7 @@
 
 
 int main() {
-    int num = 50;
+    int counter = 50;
     int sum1 = 0;
     int sum2 = 0; 
 
@@ -15,36 +15,38 @@ int main() {
     std::ifstream file(filename);
     std::string line{};
     while (std::getline(file, line)) {
-        int add = std::stoi(line.substr(1));
+        int clicks = std::stoi(line.substr(1));
 
         if (line[0] == 'L') {
-            if (num == 0)
-                --sum2; // v primeru da začnemo z 0 štejemo isto vrednost dvakrat zato se tu enkrat odšteje
+            if (counter == 0)
+                --sum2; // v primeru da začnemo z 0 štejemo isto vrednost dvakrat (takoj gremo nazaj in jo tam spet prištejemo)
 
-            for (int i = 0; i < add; ++i){
-                --num;
+            // odštevamo in v primeru, da števec pade pod 0 ga nastavimo na 0.
+            for (int i = 0; i < clicks; ++i){
+                --counter;
 
-                if (num < 0) {
-                    num = 99;
+                if (counter < 0) {
+                    counter = 99;
                     ++sum2;
                 }
             }
 
-            if (num == 0)
+            if (counter == 0) // če končamo na 0
                 ++sum2;
         }
         else {
-            for (int j = 0; j < add; ++j) {
-                ++num;
+            for (int j = 0; j < clicks; ++j) {
+                ++counter;
 
-                if (num > 99) {
-                    num = 0;
+                // če gre števec prek 99 ga nastavimo na 0
+                if (counter > 99) {
+                    counter = 0;
                     ++sum2;
                 }
             }
         }
 
-        if (num == 0)
+        if (counter == 0) // če po premikanju kazalca števec kaže na 0, prištejemo 1
             ++sum1;
     }
     
