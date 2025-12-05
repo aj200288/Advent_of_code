@@ -37,6 +37,15 @@ int max(std::string line) {
 }
 
 
+//NARED S POINTERJIIIIIIIIII dost laži
+// pa še to
+// int total = 0;
+// for (char c : chars) {
+//     total = total * 10 + (c - '0');
+// }
+
+
+
 //najprej preverš vse razen zadnjih 11
 //poj preverš vse od prejšnje max pa do zadnjih 10
 //poj preverš vse od prejšnje pa do zadnjih 9
