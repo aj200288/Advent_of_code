@@ -1,3 +1,6 @@
+Neto čas reševanja: 
+
+
 ### First time generating buildfiles:
 cmake -S . -B build -G "MinGW Makefiles"
 

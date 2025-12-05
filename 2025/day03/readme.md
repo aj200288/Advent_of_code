@@ -1,3 +1,3 @@
 Neto čas reševanja: 45min
 
-Za vsako število poiščemo največje število do 11 do konca potem od prejšnjega najdenega do 10 ....
+Prvo števko iščemo na vseh mestih razen zadnjij 11. Drugo števko iščemo od mesta prejšnje največje števke do zadnjih 10. Postopek ponvljamo za vseh 12 števk. 
