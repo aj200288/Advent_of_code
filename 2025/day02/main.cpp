@@ -8,7 +8,8 @@
 
 
 int main() {
-    std::vector<std::pair<long long, long long>> ids;
+    // par ker shranjujemo pare in jih vse obdelamo (map ima hiter lookup)
+    std::vector<std::pair<const size_t, const size_t>> ids; //vektor parov (podobnon kot map - map ma dejanosko notr shranjen pair<const key, value>)
 
     std::ifstream file("input.txt");
     std::string line{};
@@ -17,20 +18,18 @@ int main() {
         std::string token;
 
         while (std::getline(ss, token, ',')) {
-            if (token.empty()) continue;
-
             size_t pos = token.find('-');
             if (pos != std::string::npos) {
-                long long first = std::stoll(token.substr(0, pos));
-                long long second = std::stoll(token.substr(pos + 1));
+                size_t first = std::stoll(token.substr(0, pos));
+                size_t second = std::stoll(token.substr(pos + 1));
                 ids.emplace_back(first, second);
             }
         }
     }   
 
 
-    long long sum1 = 0;
-    long long sum2 = 0;
+    size_t sum1 = 0;
+    size_t sum2 = 0;
     for (const auto &p : ids) {
         sum1 += invalid_ids_part1(p.first, p.second);
         sum2 += invalid_ids_part2(p.first, p.second);

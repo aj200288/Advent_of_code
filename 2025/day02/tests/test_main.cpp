@@ -16,10 +16,7 @@ TEST(AoC2502, p2) {
     EXPECT_EQ(invalid_ids_part2(222220, 222224), 222222);
     EXPECT_EQ(invalid_ids_part2(1698522, 1698528), 0);
     EXPECT_EQ(invalid_ids_part2(446443, 446449), 446446);
-
     EXPECT_EQ(invalid_ids_part2(2121212118, 2121212124), 2121212121);
-
-   
 }
 
 

@@ -15,7 +15,7 @@ int main() {
     std::ifstream file(filename);
     std::string line{};
     while (std::getline(file, line)) {
-        int clicks = std::stoi(line.substr(1));
+        const int clicks = std::stoi(line.substr(1));
 
         if (line[0] == 'L') {
             if (counter == 0)
