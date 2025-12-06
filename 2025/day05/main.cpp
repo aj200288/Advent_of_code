@@ -9,8 +9,8 @@
 
 
 int main() {
-    std::multimap<long long, long long> ranges; //multy map ker ti lahko povozi prvo vrednost
-    std::vector<long long> ids;
+    std::multimap<size_t, size_t> ranges; //multy map ker ti lahko povozi prvo vrednost
+    std::vector<size_t> ids;
     bool first_data = true;
 
     std::ifstream file("input.txt");
@@ -23,8 +23,8 @@ int main() {
 
         if (first_data) {
             size_t pos = line.find('-');
-            long long first = std::stoll(line.substr(0, pos));
-            long long second = std::stoll(line.substr(pos+1));
+            size_t first = std::stoll(line.substr(0, pos));
+            size_t second = std::stoll(line.substr(pos+1));
             ranges.insert({first, second});
         }
         else {
@@ -32,19 +32,14 @@ int main() {
         }
 
     }
-    
-    
-    // for (auto m : ranges) {
-    //     std::cout << m.first << " : " << m.second << std::endl;
-    // }
 
     //first part, improve searching
-    // std::map<long long, long long>::iterator
-    size_t sum1 = 0;
+    // std::map<size_t, size_t>::iterator
+    long long sum1 = 0;
     for (auto &i : ids) {
         for (auto &r : ranges) {
-            long long lower = r.first;
-            long long upper = r.second;
+            size_t lower = r.first;
+            size_t upper = r.second;
 
             if(i >= lower && i <= upper){
                 ++sum1;
@@ -58,10 +53,10 @@ int main() {
 
     //prever kako je najbolj prov dodajat elemente!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    std::map<long long, long long> total_range;
+    std::map<size_t, size_t> total_range;
     for (const auto &r : ranges) {
-        long long lower = r.first;
-        long long upper = r.second;
+        size_t lower = r.first;
+        size_t upper = r.second;
 
         if (total_range.empty()) {
             total_range[lower] = upper; //če še ni nč se doda prvi element
@@ -82,8 +77,8 @@ int main() {
 
     long long sum2 = 0;
     for (auto &a : total_range) {
-        long long lower = a.first;
-        long long upper = a.second;
+        size_t lower = a.first;
+        size_t upper = a.second;
         // std::cout << a.first << " : " << a.second << std::endl;
 
         sum2 += upper - lower + 1;
@@ -99,5 +94,3 @@ int main() {
     return 0;
 }
 
-
-//map ma dejanosko notr shranjen pair<const key, value>

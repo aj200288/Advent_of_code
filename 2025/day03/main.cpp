@@ -6,8 +6,8 @@
 
 
 int main() {
-    size_t sum1 = 0;
-    size_t sum2 = 0;
+    long long sum1 = 0;
+    long long sum2 = 0;
 
     std::ifstream file("input.txt");
     // std::ifstream file("test.txt");

@@ -9,7 +9,7 @@
 //poj preverš vse od prejšnje max pa do zadnjih 10
 //poj preverš vse od prejšnje pa do zadnjih 9
 
-size_t max(const std::string &line, const int num_bat) {
+long long max(const std::string &line, const int num_bat) {
     size_t total = 0;
     size_t start_pos = 0;
 
