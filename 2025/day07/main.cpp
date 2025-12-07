@@ -14,7 +14,8 @@ int main() {
     std::vector<std::vector<size_t>> splitter_pos;
     std::set<size_t> beam_pos;
 
-    std::map<size_t, int> beams;
+        std::map<size_t, long long> beams;
+
 
 
     std::ifstream file("input.txt");
@@ -26,8 +27,10 @@ int main() {
         for (size_t c = 0; c < line.size(); ++c) {
             if (line[c] == '^') 
                 row.push_back(c);
-            else if (line[c] == 'S') 
+            else if (line[c] == 'S') { 
                 beam_pos.insert(c);
+                beams[c] = 1;
+            }
         }
         if(!row.empty())
             splitter_pos.push_back(row);
@@ -59,8 +62,42 @@ int main() {
     }
 
 
+
+    
     for (auto l: splitter_pos) {
-        
+        std::map<size_t, long long> new_beams;
+
+        for (auto b : beams) { // vsak žarek
+            bool hit = false;
+
+            for (auto s : l) { // pozicije vseh spliterjev
+                if (b.first == s) {
+                    new_beams[b.first - 1] += b.second;
+                    new_beams[b.first + 1] += b.second;
+
+                    hit = true;
+                    break; // beam lahko zadane samo en splitter
+                }
+
+            }
+
+            if (!hit) {
+                new_beams[b.first] += b.second;
+            }
+        }
+
+        beams = new_beams;
+        // for (auto b : beams) {
+        //     std::cout << b.first << ": " << b.second << " | ";
+        // }
+        // std::cout << std::endl;
+
+    }
+
+
+    long long sum2 = 0;
+    for(auto a : beams) {
+        sum2 += a.second;
     }
 
 
@@ -71,6 +108,7 @@ int main() {
 
 
     std::cout << sum << std::endl;
+    std::cout << sum2 << std::endl;
     
     return 0;
 }
