@@ -69,7 +69,7 @@ public:
     }
 };
 
-double calculateDistance(const Point3D& a, const Point3D& b) {
+double (calculateDistance)(const Point3D& a, const Point3D& b) {
     double dx = a.x - b.x;
     double dy = a.y - b.y;
     double dz = a.z - b.z;
