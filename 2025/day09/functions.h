@@ -17,13 +17,14 @@ struct Edge
 
 struct Rectangle
 {
-    std::vector<Edge> rec;
+    Edge a, b, c, d;
 };
 
 
 
 bool intersect_edge(Point point, Edge edge);
-
+bool intersect_two_edges(Edge edge1, Edge edge2);
+bool on_edge(Point point, Edge edge);
 
 
 
