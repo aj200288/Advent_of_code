@@ -16,12 +16,13 @@ endif()
 
 # Main executable
 add_executable(main main.cpp functions.cpp)
+target_link_libraries(main z3) # only for day10
 
 # Testing - stays in build folder
 enable_testing()
 find_package(GTest REQUIRED)
 
 add_executable(tests tests/test_main.cpp functions.cpp)
-target_link_libraries(tests GTest::gtest GTest::gtest_main pthread)
+target_link_libraries(tests GTest::gtest GTest::gtest_main pthread z3)
 
 add_test(NAME unit_tests COMMAND tests)
