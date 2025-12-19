@@ -1,4 +1,4 @@
-Neto čas reševanja: 
+Neto čas reševanja: 4h
 
 
 ### First time generating buildfiles:
