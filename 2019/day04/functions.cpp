@@ -24,7 +24,7 @@ bool is_valid1(int num) {
 bool is_valid2(int num) {
     bool has_exact_double = false;
 
-    Repeat current {.digit = 10, .repetitions = 0};
+    Repeat current {.digit = 10, .repetitions = 0}; // current ni najbols ime ker je u bistvu prejšn sam ne čist
 
     while (num > 0) {
         int digit = num % 10;
